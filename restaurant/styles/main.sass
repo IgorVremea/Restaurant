@@ -1,0 +1,1097 @@
+@font-face
+	font-family: 'Museo'
+	src: url('../fonts/MuseoSansCyrl-100.otf') format('opentype')
+	font-weight: 100
+	font-style: normal
+
+@font-face
+	font-family: 'Museo'
+	src: url('../fonts/MuseoSansCyrl-300.otf') format('opentype')
+	font-weight: 300
+	font-style: normal
+
+@font-face
+	font-family: 'Museo'
+	src: url('../fonts/MuseoSansCyrl-500.otf') format('opentype')
+	font-weight: 500
+	font-style: normal
+
+@font-face
+	font-family: 'Museo'
+	src: url('../fonts/MuseoSansCyrl-700.otf') format('opentype')
+	font-weight: 700
+	font-style: normal
+
+@font-face
+	font-family: 'Museo'
+	src: url('../fonts/MuseoSansCyrl-900.otf') format('opentype')
+	font-weight: 900
+	font-style: normal
+
+=ff
+	font-family: 'Museo', sans-serif
+
+$color_gradient_rose: linear-gradient(to bottom, #FF4291, #EE3658)
+$color_gradient_violet: linear-gradient(to bottom, #9355E1, #C555E1)
+$color_header_description: #86909B
+$color_header_favourite: #FF3B76
+$color_header_phone: #292C30
+$color_header_btn_border: #FF91A5
+$color_header_btn_color: #FF3B76
+$color_ip_form: #FF3B76
+$color_ip_violet: #9355E1
+$color_black: #292C30
+$color_section_gray: #F8F8F8
+$color_catalog_gray: #F6F6F6
+$color_requiest_gray: #E1E1E1
+$color_rose: #FF3B76
+$color_gradient_light-rose: linear-gradient(90deg, #BC86FF 0%, #FF7CA3 100%)
+$color_requiest_violet: #9355E1
+$color_line_gray: #E5E9ED
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+body
+	+ff
+
+.wrapper
+	max-width: 1200px
+	margin: 0 auto
+	padding: 0 15px
+	width: 100%
+
+a
+	text-decoration: none
+	font-size: inherit
+
+
+#first_view
+	height: 100vh
+	display: flex
+	flex-direction: column
+	justify-content: flex-start
+	header
+		.wrapper
+			padding: 25px 15px 25px
+			display: flex
+			justify-content: space-between
+			align-items: center
+			font-weight: 300
+			font-size: 16px
+			.left_side
+				display: flex
+				align-items: center
+				a.logo
+					display: flex
+					align-items: center
+					margin-right: 22px
+					img
+						width: 122px
+						height: auto
+				.description
+					line-height: 21px
+					color: $color_header_description
+					width: 173px
+					margin-right: 56px
+				.favourite
+					display: block
+					padding-left: 30px
+					background: url(../images/favourite.svg) no-repeat center left
+					background-size: 21px 18px
+					p
+						font-weight: 500
+						line-height: 23px
+						color: $color_header_favourite
+						border-bottom: 1px dotted $color_header_favourite
+			.right_side
+				display: flex
+				align-items: center
+				flex-direction: flex-end
+				.phone
+					font-size: 19px
+					margin-right: 34px
+				.request
+					transition: 0.3s
+					width: 197px
+					height: 53px
+					background: transparent
+					border: 1px solid $color_header_btn_border
+					color: $color_header_btn_color
+					font-weight: 500
+					font-size: 17px
+					border-radius: 3px
+					cursor: pointer
+					&:hover
+						background: $color_header_btn_border
+						color: #fff
+					&:active
+						color: $color_header_btn_color
+						background: transparent
+					&:focus
+						outline: none
+	#ip
+		background: url("../images/bg_ip.png") no-repeat top center
+		background-size: cover
+		min-height: 615px
+		color: $color_black
+		flex-grow: 1
+		display: flex
+		.wrapper
+			display: flex
+			justify-content: space-between
+			flex-direction: row
+			padding: 80px 15px 75px
+			ul
+				margin-top: 35px
+				margin-bottom: 30px
+				li
+					line-height: 33px
+					font-size: 19px
+					font-weight: 300
+			h1
+				font-size: 35px
+				font-weight: 900
+				line-height: 45px
+			.left_side
+				width: 500px
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+				font-weight: 500
+				max-width: calc(50% - 25px)
+				.under_h
+					list-style: none
+				form
+					display: flex
+					flex-wrap: wrap
+					display: flex
+					.event
+						background-color: #fff
+						width: calc(66.66% - 16px)
+						display: flex
+						align-items: center
+						padding-left: 27px
+						border-radius: 3px
+						box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+						.custom-select
+							position: relative
+							font-weight: 300
+							color: $color_ip_form
+							select
+								display: none
+							.select-selected
+								padding: 0 17px 0 7px
+								line-height: 68px
+								cursor: pointer
+								background: url("../images/select_arrow.svg") no-repeat center right
+								&.select-arrow-active
+									background-image: url("../images/select_arrow_active.svg")
+							.select-items
+								position: absolute
+								min-width: 100px
+								background-color: #fff
+								color: $color_ip_form
+								bottom: calc(100% - 20px)
+								left: 0
+								right: 0
+								z-index: 99
+								box-shadow: 0 0 5px #000
+								div
+									padding: 8px 7px
+									border: 1px solid transparent
+									border-color: rgba(0, 0, 0, 0.1) transparent rgba(0, 0, 0, 0.1) transparent
+									cursor: pointer
+									&:hover
+										background-image: $color_gradient_rose
+										color: #fff
+								&.select-hide
+									display: none
+								.same-as-selected
+									background-image: $color_gradient_rose
+									color: #fff
+					.quests
+						width: 33.3%
+						background-color: #fff
+						margin-left: 16px
+						display: flex
+						align-items: center
+						justify-content: center
+						border-radius: 3px
+						box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+						input
+							min-width: 30px
+							width: 1px
+							border: 0
+							margin-left: 7px
+							border-bottom: 1px dotted $color_ip_form
+							color: $color_ip_form
+							font-weight: 300
+							font-size: 16px
+							+ff
+							height: 25px
+							&::placeholder
+								+ff
+								font-weight: 300
+								font-size: 16px
+								color: $color_ip_form
+							&:focus
+								outline: none
+					.date
+						margin-top: 15px
+						display: flex
+						align-items: center
+						justify-content: center
+						min-width: 145px
+						background-color: #fff
+						border-radius: 3px
+						padding: 0 27px
+						box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+						.datepicker
+							outline: none
+							border: none
+							color: $color_ip_form
+							+ff
+							font-weight: 300
+							font-size: 16px
+							margin-left: 7px
+							width: auto
+							cursor: pointer
+							border-bottom: 1px dotted $color_ip_form
+							width: 90px
+							&::placeholder
+								color: $color_ip_form
+								font-size: 16px
+					button
+						box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+						border-radius: 3px
+						flex-grow: 1
+						margin-left: 16px
+						margin-top: 15px
+						font-size: 17px
+						+ff
+						border: none
+						color: #fff
+						cursor: pointer
+						height: 68px
+						background: $color_gradient_rose
+						&:focus
+							outline: none
+						&:hover
+							box-shadow: 0 0 3px rgba(0,0,0,1)
+						&:active
+							box-shadow: inset 0 0 5px #000
+			.right_side
+				width: 472px
+				max-width: calc(50% - 25px)
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+				.text
+					.under_h
+						list-style-image: url("../images/list_img.svg")
+						list-style-position: inside
+				a
+					display: block
+					width: 276px
+					line-height: 70px
+					text-align: center
+					+ff
+					border-radius: 3px
+					font-size: 17px
+					transition: 0.4s
+					border: 2px solid $color_ip_violet
+					color: $color_ip_violet
+					&:hover
+						color: #fff
+						background: $color_gradient_violet
+					&:active
+						transition: none
+						background: none
+						color: $color_ip_violet
+#about
+	color: $color_black
+	.wrapper
+		padding: 85px 15px 75px
+		display: flex
+		justify-content: space-between
+		.item
+			margin-right: 20px
+			.number
+				line-height: 50px
+				font-size: 50px
+				color: $color_ip_form
+				margin-bottom: 20px
+				font-weight: 700
+			.more
+				font-weight: 300
+			&:nth-child(1)
+				max-width: 280px
+			&:nth-child(2)
+				max-width: 190px
+			&:nth-child(3)
+				max-width: 220px
+				margin-right: 0
+
+#how_it_works
+	background: $color_section_gray
+	text-align: center
+	padding: 73px 0 80px
+	+ff
+	.wrapper
+		h2
+			font-size: 35px
+			font-weight: 900
+			color: $color_black
+		.items
+			margin-top: 40px
+			display: flex
+			justify-content: space-between
+			.item
+				width: calc(33.33% - 25px)
+				padding: 30px 45px 20px
+				background-color: #fff
+				display: flex
+				flex-direction: column
+				align-items: center
+				img
+					margin-bottom: 46px
+					display: block
+					width: 58px
+					height: auto
+				h3
+					margin-bottom: 10px
+					font-weight: 700
+					font-size: 19px
+				p
+					font-size: 16px
+					font-weight: 300
+				&:nth-child(1)
+					img
+						width: 50px
+						height: auto
+				&:last-child
+					width: 33.33%
+					padding: 30px 25px 20px
+		button
+			width: 276px
+			height: 70px
+			+ff
+			border-radius: 3px
+			font-size: 17px
+			transition: 0.4s
+			background-color: transparent
+			border: 2px solid $color_ip_violet
+			color: $color_ip_violet
+			margin-top: 42px
+			cursor: pointer
+			&:hover
+				color: #fff
+				background: $color_gradient_violet
+			&:active
+				transition: none
+				background: none
+				color: $color_ip_violet
+			&:focus
+				outline: none
+
+#catalog
+	.wrapper
+		color: $color_black
+		text-align: center
+		padding-top: 73px
+		padding-bottom: 85px
+		h2
+			+ff			
+			font-size: 35px
+		.examples
+			margin-top: 37px
+			display: flex
+			flex-wrap: wrap
+			flex-direction: row
+			.item
+				color: inherit
+				display: block
+				width: calc(33.33% - 28px)
+				margin-right: 42px
+				margin-bottom: 42px
+				&:nth-child(3n)
+					margin-right: 0
+				.image
+					position: relative
+					img
+						width: 100%
+						display: block
+					.number
+						position: absolute
+						bottom: 14px
+						right: 14px
+						line-height: 29px
+						background-color: $color_rose
+						color: #fff
+						padding: 0 16px
+				.text
+					display: flex
+					align-items: center
+					text-align: center
+					justify-content: space-around
+					min-height: 72px
+					background-color: $color_catalog_gray
+					border-radius: 0 0 3px 3px
+				&:hover .text
+					background: $color_gradient_rose
+				&:active .text
+					box-shadow: inset 0 0 10px rgba(0,0,0,0.5)
+		.catalog
+			display: block
+			margin: 70px auto 0
+			line-height: 69px
+			width: 276px
+			background: $color_gradient_rose
+			color: #fff
+			+ff
+			border-radius: 3px
+			&:hover
+				box-shadow: 0 0 3px rgba(0,0,0,1)
+			&:active
+				box-shadow: inset 0 0 5px #000
+
+#requiest
+	background: $color_gradient_light-rose
+	.wrapper
+		padding-top: 73px
+		padding-bottom: 70px
+		h2
+			text-align: center
+			color: #fff
+			font-size: 35px
+		.slick-slider
+			position: relative
+			margin: 40px auto 0
+			max-width: 1020px
+			width: calc(100% - 180px)
+			.slick-arrow
+				position: absolute
+				width: 46px
+				height: 46px
+				border-radius: 50%
+				z-index: 2
+				border: none
+				outline: none
+				cursor: pointer
+				&.slick-prev
+					background: url('../images/slick_prev.svg') no-repeat center center
+					background-color: #fff
+					top: calc(50% - 23px)
+					left: -90px
+				&.slick-next
+					background: url('../images/slick_next.svg')	no-repeat center center
+					background-color: #fff
+					top: calc(50% - 23px)
+					right: -90px
+			.slick-list
+				margin-left: -21px
+				.slick-slide
+					overflow: hidden
+					padding: 0 21px
+					.item
+						color: inherit
+						+ff
+						background-color: #fff
+						margin-right: 42px
+						display: block
+						.heading
+							padding: 0 15px
+							height: 70px
+							display: flex
+							align-items: center
+							justify-content: space-around
+							text-align: center
+							border-bottom: 1px solid $color_requiest_gray
+							transition: 0.4s
+						.info
+							padding: 25px 28px 15px
+							line-height: 28px
+							border-bottom: 1px solid $color_requiest_gray
+							.colored
+								color: $color_requiest_violet
+						.author
+							line-height: 22px
+							padding: 25px 28px 20px
+						&:hover
+							.heading
+								background: $color_gradient_violet
+								color: #fff
+		.btn_requiest
+			display: block
+			margin: 70px auto 0
+			color: #fff
+			+ff
+			font-size: 17px
+			height: 70px
+			width: 276px
+			border: 2px solid #FFFFFF
+			outline: none
+			background: none
+			cursor: pointer
+			border-radius: 3px
+			transition: 0.4s
+			&:hover
+				background: $color_gradient_violet
+				color: inherit
+				border: none
+			&:active
+				transition: 0.2s
+				background: none
+				border: 2px solid #fff
+				color: #fff
+		.last_date
+			color: #fff
+			text-align: center
+			font-weight: 300
+			margin-top: 30px
+
+#faq
+	.wrapper
+		padding: 75px 15px 80px
+		color: $color_black
+		h2
+			text-align: center
+			font-size: 35px
+		.accordeon
+			max-width: 900px
+			margin: 37px auto 0
+			.acc-head
+				background: url('../images/acc-viol-down.svg') no-repeat center right 30px
+				background-color: $color_section_gray
+				cursor: pointer
+				padding: 27px 60px 27px 27px
+				transition: 0.4s
+				border-radius: 3px
+				font-size: 19px
+				border-radius: 3px
+				margin-top: 25px
+				&:hover
+					color: #fff
+					background-image: url('../images/acc-wht-down.svg')
+					background-color: $color_requiest_violet
+					& + .acc-body
+						color: #fff
+						background-color: $color_requiest_violet
+				&.active
+					background-image: url('../images/acc-viol-up.svg')
+					border-radius: 3px 3px 0 0
+					&:hover
+						background-image: url('../images/acc-wht-up.svg')
+					& + .acc-body
+						border-radius: 0 0 3px 3px
+			.acc-body
+				background-color: $color_section_gray
+				transition-property: color, background-color
+				transition-duration: 0.4s
+				display: none
+				font-size: 16px
+				padding: 0 225px 27px 27px
+
+#selection
+	background-color: $color_section_gray
+	.wrapper
+		padding: 72px 15px 80px
+		color: $color_black
+		h2
+			font-size: 35px
+			text-align: center
+		form
+			display: flex
+			max-width: 1015px
+			margin: 50px auto 0
+			.event
+				background-color: #fff
+				min-width: 332px
+				display: flex
+				align-items: center
+				padding-left: 27px
+				border-radius: 3px
+				margin-right: 26px
+				box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+				.custom-select
+					position: relative
+					font-weight: 300
+					color: $color_ip_form
+					select
+						display: none
+					.select-selected
+						padding: 0 17px 0 7px
+						line-height: 68px
+						cursor: pointer
+						background: url("../images/select_arrow.svg") no-repeat center right
+						&.select-arrow-active
+							background-image: url("../images/select_arrow_active.svg")
+					.select-items
+						position: absolute
+						min-width: 100px
+						background-color: #fff
+						color: $color_ip_form
+						bottom: calc(100% - 20px)
+						left: 0
+						right: 0
+						z-index: 99
+						box-shadow: 0 0 5px #000
+						div
+							padding: 8px 7px
+							border: 1px solid transparent
+							border-color: rgba(0, 0, 0, 0.1) transparent rgba(0, 0, 0, 0.1) transparent
+							cursor: pointer
+							&:hover
+								background-image: $color_gradient_rose
+								color: #fff
+						&.select-hide
+							display: none
+						.same-as-selected
+							background-image: $color_gradient_rose
+							color: #fff
+			.quests
+				min-width: 140px
+				background-color: #fff
+				margin-right: 26px
+				display: flex
+				align-items: center
+				justify-content: center
+				border-radius: 3px
+				box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+				input
+					min-width: 30px
+					width: 1px
+					border: 0
+					margin-left: 7px
+					border-bottom: 1px dotted $color_ip_form
+					color: $color_ip_form
+					font-weight: 300
+					font-size: 16px
+					+ff
+					height: 25px
+					&::placeholder
+						+ff
+						font-weight: 300
+						font-size: 16px
+						color: $color_ip_form
+					&:focus
+						outline: none
+			.date
+				display: flex
+				align-items: center
+				justify-content: center
+				min-width: 178px
+				margin-right: 26px
+				background-color: #fff
+				border-radius: 3px
+				padding: 0 27px
+				box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+				.datepicker
+					border: none
+					color: $color_ip_form
+					+ff
+					font-weight: 300
+					font-size: 16px
+					margin-left: 7px
+					width: auto
+					cursor: pointer
+					border-bottom: 1px dotted $color_ip_form
+					width: 90px
+					outline: none
+					&::placeholder
+						color: $color_ip_form
+						font-size: 16px
+			button
+				box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+				border-radius: 3px
+				flex-grow: 1
+				font-size: 17px
+				+ff
+				border: none
+				color: #fff
+				cursor: pointer
+				height: 68px
+				background: $color_gradient_rose
+				padding: 0 10px
+				&:focus
+					outline: none
+				&:hover
+					box-shadow: 0 0 3px rgba(0,0,0,1)
+				&:active
+					box-shadow: inset 0 0 5px #000
+		.line
+			width: 100%
+			background-color: $color_line_gray
+			height: 1px
+			margin-top: 83px
+		.ip
+			margin-top: 80px
+			display: flex
+			justify-content: space-between
+			.item
+				width: calc(33.33% - 48px)
+				background-color: #fff
+				display: flex
+				flex-direction: column
+				text-align: center
+				padding: 28px 28px 43px
+				img
+					height: 57px
+				.sub_img
+					margin-top: 26px
+#info
+	background: linear-gradient(to top, #FAFAFA, #fff 10px)
+	.wrapper
+		color: $color_black
+		font-size: 19px
+		line-height: 30px
+		font-weight: 300
+		padding: 76px 15px 70px
+
+#header_the_same
+	.wrapper
+		padding: 43px 15px 40px
+		border-bottom: 1px solid $color_line_gray
+		display: flex
+		justify-content: space-between
+		align-items: center
+		font-weight: 300
+		font-size: 16px
+		.left_side
+			display: flex
+			align-items: center
+			a.logo
+				display: flex
+				align-items: center
+				margin-right: 72px
+				img
+					width: 122px
+					height: auto
+			.description
+				line-height: 21px
+				color: $color_header_description
+				width: 173px
+				margin-right: 56px
+			.favourite
+				display: block
+				padding-left: 30px
+				background: url(../images/favourite.svg) no-repeat center left
+				background-size: 21px 18px
+				p
+					font-weight: 500
+					line-height: 23px
+					color: $color_header_favourite
+					border-bottom: 1px dotted $color_header_favourite
+		.right_side
+			display: flex
+			align-items: center
+			flex-direction: flex-end
+			.contacts
+				display: flex
+				justify-content: space-between
+				flex-direction: column
+				margin-right: 34px
+				line-height: 18px
+				.phone
+					font-size: 18px
+					margin-bottom: 11px
+
+			.request
+				padding: 0 35px
+				box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.04)
+				border-radius: 3px
+				flex-grow: 1
+				font-size: 17px
+				+ff
+				font-weight: 300
+				margin-right: 25px
+				border: none
+				color: #fff
+				cursor: pointer
+				height: 68px
+				background: $color_gradient_rose
+				&:focus
+					outline: none
+				&:hover
+					box-shadow: 0 0 3px rgba(0,0,0,1)
+				&:active
+					box-shadow: inset 0 0 5px #000
+			.up
+				display: flex
+				align-items: center
+				line-height: 16px
+				padding: 0 70px
+				height: 68px
+				+ff
+				border-radius: 3px
+				font-weight: 500
+				transition: 0.4s
+				background-color: transparent
+				border: 2px solid $color_ip_violet
+				color: $color_ip_violet
+				cursor: pointer
+				&:hover
+					color: #fff
+					background: $color_gradient_violet
+				&:active
+					transition: none
+					background: none
+					color: $color_ip_violet
+				&:focus
+					outline: none
+
+#links
+	.wrapper
+		display: flex
+		justify-content: space-between
+		padding: 35px 15px 37px
+		white-space: nowrap
+		align-items: center
+		.left
+			color: $color_black
+			border-bottom: 1px dotted $color_black
+			margin-right: 30px
+		.right
+			display: flex
+			justify-content: flex-end
+			flex-grow: 1
+			justify-content: space-between
+			align-items: flex-start
+			a
+				margin-right: 20px
+				color: $color_rose
+				border-bottom: 1px dotted $color_header_favourite
+				&:last-of-type
+					margin-right: 0
+
+footer
+	background-color: $color_section_gray
+	.wrapper
+		padding: 21px 15px
+		display: flex
+		color: $color_black
+		justify-content: space-between
+		font-weight: 300
+		align-items: center
+		.right
+			display: flex
+			align-items: center
+			img
+				margin-left: 5px
+
+@media(max-width: 1000px)
+	#first_view	
+		#ip
+			.wrapper
+				.left_side
+					.selection
+						.event
+							width: 100%
+						.quests
+							line-height: 68px
+							width: calc(40% - 15px)
+							margin: 0
+							margin-right: 15px
+							margin-top: 15px	
+						.date
+							flex-grow: initial
+							width: 60%
+							line-height: 68px
+						button
+							margin-left: 0
+							padding: 0 27px
+	#faq
+		.wrapper
+			.accordeon
+				.acc-body
+					padding-right: 27px
+	#header_the_same
+		.wrapper
+			.left_side
+				flex-direction: column
+				align-items: flex-start
+				.logo
+					margin-right: 0px
+				.favourite
+					margin-top: 14px
+
+@media(max-width: 930px)
+	#first_view
+		header
+			.wrapper
+				.left_side
+					width: 100%
+				.right_side
+					flex-direction: column-reverse
+					.phone
+						text-align: center
+						margin: 0
+						margin-top: 10px
+	#catalog
+		.wrapper
+			.examples
+				.item
+					width: calc(50% - 21px)
+					&:nth-child(3n)
+						margin-right: 42px
+					&:nth-child(2n)
+						margin-right: 0 
+
+@media(max-width: 900px)
+	#about
+		.wrapper
+			.item
+				&:nth-child(1)
+					max-width: 200px
+					.more
+						br
+							display: none
+	#selection
+		.wrapper
+			form
+				flex-wrap: wrap
+				.event
+					flex-grow: 1
+				.date
+					flex-grow: 1
+					margin-right: 0
+				button
+					margin-top: 26px
+	#header_the_same
+		.wrapper
+			.right_side
+				justify-content: flex-end
+				flex-wrap: wrap
+				&:after
+					content: ''
+					width: 100%
+					order: 0
+				.contacts
+					margin-bottom: 20px
+				.request
+					margin-right: 0
+					max-width: 200px
+				.up
+					margin-top: 20px
+					order: 1
+					max-width: 200px
+	#links
+		.wrapper
+			.right
+				flex-wrap: wrap
+				justify-content: space-around  
+				&:after
+					content: ''
+					width: 100%
+					order: 0
+				a
+					margin-right: 0
+					text-align: center
+					&:nth-child(3), &:nth-child(4)
+						margin-top: 20px
+					&:nth-child(2)
+						& ~ a
+							order: 1
+
+@media(max-width: 761px)
+	#first_view
+		height: auto
+		header
+			.wrapper
+				.left_side
+					flex-wrap: wrap
+					&:after
+						content: ''
+						width: 100%
+						order: 0
+					.description
+						margin-right: 30px
+					.favourite
+						order: 1
+						margin-top: 20px
+		#ip
+			.wrapper
+				flex-wrap: wrap
+				&:after
+					content: ''
+					width: 100%
+					order: 0
+				.left_side
+					width: 100%
+					max-width: inherit
+					form
+						margin: 50px auto 0
+						width: 60%
+						min-width: 340px
+				.right_side
+					margin-top: 150px
+					width: 100%
+					max-width: inherit
+					order: 1
+	#selection
+		.wrapper
+			form
+				.quests
+					margin-right: 0
+				.date
+					margin-top: 26px
+					margin-right: 26px
+			.ip
+				.item
+					width: calc(33.33% - 20px)
+	#links
+		.wrapper
+			flex-direction: column
+			align-items: start
+			.right
+				margin-top: 20px
+				width: 100%
+				justify-content: space-between
+				&:after
+					display: none
+				a
+					&:nth-child(3), &:nth-child(4)
+						margin-top: 0
+
+@media(max-width: 590px)
+	#first_view
+		header
+			.wrapper
+				flex-wrap: wrap
+				.left_side
+					&:after
+						order: 1
+					.favourite
+						order: 0
+						margin-top: 0
+				.right_side
+					margin-top: 20px
+
+@media(max-width: 544px)
+	#first_view
+		header
+			.wrapper
+				.left_side
+					justify-content: space-between
+					&:after
+						order: 1
+					.logo
+						order: 0
+					.description
+						order: 2
+					.favourite
+						order: 0
+	#selection
+		.wrapper
+			form
+				.event
+					margin-right: 0
+				.quests
+					margin-top: 26px
+					margin-right: 26px
+					height: 68px
+				.date
+					margin-right: 0
